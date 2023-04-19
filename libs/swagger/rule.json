@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.1",
+    "title": "XT Shop"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "get Product",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/createProduct": {
+      "post": {
+        "tags": ["Products"],
+        "summary": "create product",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "product": {
+      "type": "object",
+      "properties": {
+        "productId": { "type": "number", "example": "" },
+        "name": { "type": "string", "example": "" },
+        "price": { "type": "number", "example": "" },
+        "description": { "type": "string", "example": "" }
+      }
+    }
+  }
+}
