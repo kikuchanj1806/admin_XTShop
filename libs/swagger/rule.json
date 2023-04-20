@@ -42,7 +42,7 @@
         "responses": {}
       }
     },
-    "/": {
+    "/product/getAllProduct": {
       "get": {
         "tags": ["Product"],
         "summary": "get Product",
@@ -59,7 +59,7 @@
         "responses": {}
       }
     },
-    "/createProduct": {
+    "/product/createProduct": {
       "post": {
         "tags": ["Products"],
         "summary": "create product",

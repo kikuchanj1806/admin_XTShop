@@ -19,6 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 app.use("/documentation", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.get("/", (req, res) => {
+    res.send('SERVER ON')
+})
 route(app);
 
 app.listen(port, () => {
