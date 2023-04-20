@@ -4,10 +4,10 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require("body-parser");
 const morgan = require('morgan');
-const logger = require("../libs/utils/logger");
-const swaggerDocument = require("../libs/swagger/rule.json");
-const { connectDB } = require("./configs");
-const route = require("./routers");
+const logger = require("./libs/utils/logger");
+const swaggerDocument = require("./libs/swagger/rule.json");
+const { connectDB } = require("./apps/configs");
+const route = require("./apps/routers");
 
 const app = express();
 const port = process.env.PORT || 3000;
