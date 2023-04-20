@@ -18,7 +18,7 @@ module.exports.createProduct = async (req, res) => {
 module.exports.getAllProducts = async (req, res) => {
     try {
         const allPrd = await productsModel.find();
-        Response.success(req, res, { allPrd }, 201);
+        Response.success(req, res, { allPrd }, 200);
     } catch (error) {
         console.log(error);
     }

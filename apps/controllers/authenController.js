@@ -25,11 +25,11 @@ module.exports.login = async (req, res) => {
         const { username, password } = req.body;
         const user = await usersModel.findOne({ username });
         if (!user) {
-            return Response.error(req, res, "Tài khoản hoặc mật khẩu không đúng", httpStatus.FORBIDDEN);
+            return Response.error(req, res, "Tài khoản hoặc mật khẩu không đúng", 500);
         }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return Response.error(req, res, "Tài khoản hoặc mật khẩu không đúng", httpStatus.FORBIDDEN);
+            return Response.error(req, res, "Tài khoản hoặc mật khẩu không đúng", 500);
         }
         const payload = {
             userId: user._id,
