@@ -3,12 +3,11 @@ const express = require("express");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require("body-parser");
+const morgan = require('morgan');
 const logger = require("../libs/utils/logger");
 const swaggerDocument = require("../libs/swagger/rule.json");
-const productsModel = require('./models/products.model');
 const { connectDB } = require("./configs");
 const route = require("./routers");
-
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +17,7 @@ connectDB();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('tiny'));
 app.use("/documentation", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 route(app);
 

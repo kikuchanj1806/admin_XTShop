@@ -1,13 +1,13 @@
 
 class Response {
-  static async success(req, res, data, status = 200) {
+  static async success(req, res, data, message, status) {
     return res.status(status).json({
       status: "success",
       data,
     });
   }
 
-  static async error(req, res, message, status = 500) {
+  static async error(req, res, message, status) {
     return res.status(status).json({
       status: "failed",
       message
