@@ -44,7 +44,7 @@
     },
     "/product/getAllProduct": {
       "get": {
-        "tags": ["Product"],
+        "tags": ["Products"],
         "summary": "get Product",
         "parameters": [
           {
@@ -75,6 +75,47 @@
         ],
         "responses": {}
       }
+    },
+    "/product/{id}": {
+      "patch": {
+        "tags": ["Product edit"],
+        "summary": "edit product",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": ["Product edit"],
+        "summary": "delete product",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        ],
+        "responses": {}
+      }
     }
   },
   "definitions": {
@@ -88,7 +129,6 @@
     "product": {
       "type": "object",
       "properties": {
-        "productId": { "type": "number", "example": "" },
         "name": { "type": "string", "example": "" },
         "price": { "type": "number", "example": "" },
         "description": { "type": "string", "example": "" }
